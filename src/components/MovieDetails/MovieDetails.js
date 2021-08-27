@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 function MovieDetails(){
     const history = useHistory();
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
     const details = useSelector((store) => store.details);
 
     const handleBack = () => {
