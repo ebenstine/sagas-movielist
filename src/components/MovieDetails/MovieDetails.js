@@ -1,17 +1,37 @@
 import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
 
-function DisplayDetails(){
+function MovieDetails(){
     const history = useHistory();
+    const dispatch = useDispatch();
+    const details = useSelector((store) => store.details);
 
-    const handleClick = () => {
-        console.log('clicked')
-        history.push('/');
+    const handleBack = () => {
+        console.log('back to movies')
+        history.goBack();
     }
 
     return (
         <div>
-            <button onClick={handleClick}>Back to List</button>
+            <button onClick={handleBack}>Back to List</button>
+
+            <section className="details">
+            {details?.map((detail) => {
+                return (
+                    <div key={detail.id}>
+                    <h3>{detail.title}</h3>
+                    <img src={detail.poster} alt={detail.title} />
+                    <p>{detail.description}</p>
+                    <h4>Genres</h4>
+                    <p>{detail.genre}</p>
+
+                    </div>
+                )
+            })}
+
+            </section>
         </div>
     )
 }
-export default DisplayDetails;
+export default MovieDetails;

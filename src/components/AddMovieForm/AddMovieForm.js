@@ -1,15 +1,33 @@
 import { useHistory } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 
 function AddMovie() {
     const history = useHistory();
+    const dispatch = useDispatch();
 
-    const handleSave = () => {
+    const [newMovie, setMovie] = useState({
+        title: '',
+        poster: '',
+        description: '',
+        movie_id: null,
+        genre_id: null,
+    });
+
+
+    const handleSave = (event) => {
+        event.preventDefault()
         console.log('CLICKED!');
+        dispatch({
+            type: "POST_MOVIE",
+            payload: newMovie
+        })
+
         history.push('/');
     }
 
     const handleCancel = () => {
-        console.log('CLICKED!');
+        console.log('cancel clicked');
         history.push('/');
     }
 
@@ -43,8 +61,8 @@ function AddMovie() {
             </select>
             <br />
             <br />
-            <button onClick={handleSaveClick}>Save</button>
-            <button onClick={handleCancelClick}>Cancel</button>
+            <button onClick={handleSave}>Save</button>
+            <button onClick={handleCancel}>Cancel</button>
         </div>
     )
 }
