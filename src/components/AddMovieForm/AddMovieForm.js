@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 //might not need useEffect here
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 //ran with test info and it is posting
 function AddMovie() {
@@ -41,19 +41,19 @@ function AddMovie() {
 
     return (
         <div>
-            <h1>Add a Movie</h1>
+            <h1>Add a Movie to Your Collection!</h1>
         <form>
             <div>
             <input 
                 type="text"
-                placeholder="Movie Title"
+                placeholder="Title"
                 onChange={(event) => handleInputs("title", event.target.value)}
             />
             </div>
             <div>
             <input
                 type="text"
-                placeholder="Movie Poster URL"
+                placeholder="Poster URL"
                 onChange={(event) => handleInputs("poster", event.target.value)}
             />
             </div>
