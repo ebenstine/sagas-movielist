@@ -41,28 +41,36 @@ function AddMovie() {
 
     return (
         <div>
+            <h1>Add a Movie</h1>
+        <form>
+            <div>
             <input 
                 type="text"
                 placeholder="Movie Title"
                 onChange={(event) => handleInputs("title", event.target.value)}
             />
+            </div>
+            <div>
             <input
                 type="text"
                 placeholder="Movie Poster URL"
                 onChange={(event) => handleInputs("poster", event.target.value)}
             />
-            <input
+            </div>
+            <div>
+            <textarea
                 type="text"
-                placeholder="Movie Description"
+                placeholder="Add a Summary"
                 rows="6"
                 cols="50"
                 onChange={(event) => handleInputs("description", event.target.value)}
 
             />
-            <textarea></textarea>
-
-            <select name="Genre"
-            onChange={(event) => handleInputs("genre_id", event.target.value)}
+            </div>
+            <div>
+            <select 
+                name="Genre"
+                onChange={(event) => handleInputs("genre_id", event.target.value)}
             >
                 <option value="0"></option>
                 <option value="1">Adventure</option>
@@ -79,12 +87,16 @@ function AddMovie() {
                 <option value="12">Space-Opera</option>
                 <option value="13">Superhero</option>
             </select>
+            </div>
             <br />
             <br />
+            <div>
             <button onClick={handleSave}>Save</button>
             <button onClick={handleCancel}>Cancel</button>
-        </div>
-    )
+            </div>
+        </form>
+    </div>
+    );
 }
 
 export default AddMovie;
