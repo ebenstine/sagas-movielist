@@ -1,7 +1,8 @@
 import { useHistory } from 'react-router-dom';
+//might not need useEffect here
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-
+//ran with test info and it is posting
 function AddMovie() {
     const history = useHistory();
     const dispatch = useDispatch();
