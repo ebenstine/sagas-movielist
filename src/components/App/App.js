@@ -6,8 +6,8 @@ import AddMovieForm from '../AddMovieForm/AddMovieForm';
 
 function App() {
   return (
-    <div className="App">
-      <h1>The Movies Saga!</h1>
+    <div className="App-header">
+      <h1>My Library of Movies</h1>
       <Router>        
         <Route path="/" exact>
           <MovieList />

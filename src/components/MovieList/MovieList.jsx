@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import './MovieList.css'
+import { Grid, Typography } from '@material-ui/core';
+//import MovieCard from '../MovieCard/MovieCard'
+
+
 
 function MovieList() {
 
@@ -9,6 +13,7 @@ function MovieList() {
     const history = useHistory();
     const movies = useSelector(store => store.movies);
     const genres = useSelector((store) => store.genres);
+    
 
     
     
@@ -33,23 +38,29 @@ function MovieList() {
     }
 
     return (
-        <main>
-            <h1>MovieList</h1>
-            <button onClick={handleNext}>Add Movie</button>
+        <>
+            
+            <Grid container justifyContent="center" spacing={4}>
+            <button onClick={handleNext}>Add a New Title!</button>
             <section className="movies">
-                {movies.map((movie) => {
+            {movies.map((movie) => {
                     return (
-                        <div key={movie.id} >
-                            <h5>{movie.title}</h5>
+                        <Grid item md={3} key={movie.id} >
+                            <div>
+                            <Typography variant="overline">{movie.title}</Typography>
+                            </div>
+                            <div>
                             <img onClick={() => handleClick(movie)} 
                             src={movie.poster} 
                             alt={movie.title}
                             />
                         </div>
+                        </Grid>
                     );
                 })}
             </section>
-        </main>
+            </Grid>
+        </>
 
     );
 }

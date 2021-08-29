@@ -1,13 +1,16 @@
 import { useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 //might not need useEffect here
 import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, Button, Typography, TextField, Input, Grid } from '@material-ui/core';
+import { TextField, Button, Typography, Box, Grid } from '@material-ui/core';
+
 //ran with test info and it is posting
+
 function AddMovie() {
     const history = useHistory();
     const dispatch = useDispatch();
-
+  
     const [newMovie, setNewMovie] = useState({
         title: '',
         poster: '',
@@ -42,41 +45,41 @@ function AddMovie() {
 
     return (
     <Box display="flex">
-        
-            <Typography>Add a Movie to Your Collection!</Typography>
+        <Typography>Add a Movie to Your Collection!</Typography>
         <form>
             <Grid container spacing={3} alignItems="center">
             <Grid item>
-            <Input 
+            <TextField
+                label="Movie Title"
                 type="text"
-                placeholder="Title"
                 onChange={(event) => handleInputs("title", event.target.value)}
             />
-            </Grid>
+           </Grid>
             
-            <Grid>
-            <Input
+            <Grid item>
+            <TextField
+                label="Add a Poster Image"
                 type="text"
-                placeholder="Poster URL"
                 onChange={(event) => handleInputs("poster", event.target.value)}
             />
             </Grid>
-            <Grid>
+            <Grid item>
             <TextField
+                label="Add a Summary"
                 type="text"
-                placeholder="Add a Summary"
                 rows="6"
                 cols="50"
                 onChange={(event) => handleInputs("description", event.target.value)}
 
             />
             </Grid>
-            <Grid>
+            <Grid item>
             <select 
-                name="Genre"
+
+                label="Select Genre"
                 onChange={(event) => handleInputs("genre_id", event.target.value)}
             >
-                <option value="0"></option>
+                <option value="0">Select Genre</option>
                 <option value="1">Adventure</option>
                 <option value="2">Animated</option>
                 <option value="3">Biographical</option>
@@ -91,6 +94,7 @@ function AddMovie() {
                 <option value="12">Space-Opera</option>
                 <option value="13">Superhero</option>
             </select>
+            
             </Grid>
             
             <br />
@@ -102,7 +106,7 @@ function AddMovie() {
         </Grid>
     </form>
     
-    </Box>
+</Box>
     );
 }
 
