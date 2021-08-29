@@ -3,25 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import './MovieList.css'
 import { Grid, Typography } from '@material-ui/core';
-//import MovieCard from '../MovieCard/MovieCard'
-
-
-
 function MovieList() {
 
     const dispatch = useDispatch();
     const history = useHistory();
     const movies = useSelector(store => store.movies);
     const genres = useSelector((store) => store.genres);
-    
 
-    
-    
-
+    //get db info on page load
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
-
+    //push forward to details page on click
     const handleClick = (movie) => {
         console.log('you clicked on:', movie);
         dispatch ({
@@ -31,12 +24,12 @@ function MovieList() {
 
         history.push('/details')
     }
-
+//push forward to the form
     const handleNext = () => {
         console.log('clicked add movie');
         history.push('/add-movie')
     }
-
+//basic material ui setup in return, plan to revisit this
     return (
         <>
             

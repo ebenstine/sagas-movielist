@@ -1,17 +1,16 @@
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+
 
 function MovieDetails(){
     const history = useHistory();
-    //const dispatch = useDispatch();
     const details = useSelector((store) => store.details);
-
+    //back button path home
     const handleBack = () => {
         console.log('back to movies')
         history.goBack();
     }
-
+    //button to go back, map through details with id
     return (
         <div>
             <button onClick={handleBack}>Back to List</button>

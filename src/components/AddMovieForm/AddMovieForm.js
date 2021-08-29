@@ -1,16 +1,16 @@
 import { useHistory } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+
 //might not need useEffect here
 import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { TextField, Button, Typography, Box, Grid } from '@material-ui/core';
 
 //ran with test info and it is posting
-
+//make sure to go into database and fix
 function AddMovie() {
     const history = useHistory();
     const dispatch = useDispatch();
-  
+    //default values for form
     const [newMovie, setNewMovie] = useState({
         title: '',
         poster: '',
@@ -19,7 +19,7 @@ function AddMovie() {
         genre_id: null,
     });
 
-
+    //dispatch the post and go home
     const handleSave = (event) => {
         event.preventDefault()
         console.log('new movie added', newMovie);
@@ -35,16 +35,16 @@ function AddMovie() {
         setNewMovie ({...newMovie, [key]: value})
         
     }
-
+    //if entry is cancelled, go home
     const handleCancel = () => {
         console.log('cancel clicked');
         history.push('/');
     }
 
 
-
+    //form details
     return (
-    <Box display="flex">
+    <Box display="flex">   
         <Typography>Add a Movie to Your Collection!</Typography>
         <form>
             <Grid container spacing={3} alignItems="center">
@@ -100,6 +100,7 @@ function AddMovie() {
             <br />
             <br />
             <Grid item>
+            
             <Button onClick={handleSave}>Save</Button>
             <Button onClick={handleCancel}>Cancel</Button>
             </Grid>
