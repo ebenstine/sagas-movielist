@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 //might not need useEffect here
 import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { TextField, Button, Typography, Box, Grid } from '@material-ui/core';
+import { TextField, Button, Typography, Box, Grid, TextareaAutosize } from '@material-ui/core';
 
 //ran with test info and it is posting
 //make sure to go into database and fix
@@ -64,11 +64,11 @@ function AddMovie() {
             />
             </Grid>
             <Grid item>
-            <TextField
-                label="Add a Summary"
+            <TextareaAutosize
+                placeholder="add a description"
                 type="text"
-                rows="6"
-                cols="50"
+                rows="2"
+                
                 onChange={(event) => handleInputs("description", event.target.value)}
 
             />
