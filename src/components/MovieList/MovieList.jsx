@@ -37,12 +37,13 @@ function MovieList() {
             <h1>MovieList</h1>
             <button onClick={handleNext}>Add Movie</button>
             <section className="movies">
-                {movies.map(movie => {
+                {movies.map((movie) => {
                     return (
                         <div key={movie.id} >
-                            <h3>{movie.title}</h3>
+                            <h5>{movie.title}</h5>
                             <img onClick={() => handleClick(movie)} 
-                            src={movie.poster} alt={movie.title}
+                            src={movie.poster} 
+                            alt={movie.title}
                             />
                         </div>
                     );

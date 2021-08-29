@@ -20,7 +20,7 @@ function MovieDetails(){
             {details?.map((detail) => {
                 return (
                     <div key={detail.id}>
-                    <h3>{detail.title}</h3>
+                    <h4>{detail.title}</h4>
                     <img src={detail.poster} alt={detail.title} />
                     <p>{detail.description}</p>
                     <h4>Genres</h4>
