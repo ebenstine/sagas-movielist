@@ -2,6 +2,7 @@ import { useHistory } from 'react-router-dom';
 //might not need useEffect here
 import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { Box, Button, Typography, TextField, Input, Grid } from '@material-ui/core';
 //ran with test info and it is posting
 function AddMovie() {
     const history = useHistory();
@@ -40,25 +41,28 @@ function AddMovie() {
 
 
     return (
-        <div>
-            <h1>Add a Movie to Your Collection!</h1>
+    <Box display="flex">
+        
+            <Typography>Add a Movie to Your Collection!</Typography>
         <form>
-            <div>
-            <input 
+            <Grid container spacing={3} alignItems="center">
+            <Grid item>
+            <Input 
                 type="text"
                 placeholder="Title"
                 onChange={(event) => handleInputs("title", event.target.value)}
             />
-            </div>
-            <div>
-            <input
+            </Grid>
+            
+            <Grid>
+            <Input
                 type="text"
                 placeholder="Poster URL"
                 onChange={(event) => handleInputs("poster", event.target.value)}
             />
-            </div>
-            <div>
-            <textarea
+            </Grid>
+            <Grid>
+            <TextField
                 type="text"
                 placeholder="Add a Summary"
                 rows="6"
@@ -66,8 +70,8 @@ function AddMovie() {
                 onChange={(event) => handleInputs("description", event.target.value)}
 
             />
-            </div>
-            <div>
+            </Grid>
+            <Grid>
             <select 
                 name="Genre"
                 onChange={(event) => handleInputs("genre_id", event.target.value)}
@@ -87,15 +91,18 @@ function AddMovie() {
                 <option value="12">Space-Opera</option>
                 <option value="13">Superhero</option>
             </select>
-            </div>
+            </Grid>
+            
             <br />
             <br />
-            <div>
-            <button onClick={handleSave}>Save</button>
-            <button onClick={handleCancel}>Cancel</button>
-            </div>
-        </form>
-    </div>
+            <Grid item>
+            <Button onClick={handleSave}>Save</Button>
+            <Button onClick={handleCancel}>Cancel</Button>
+            </Grid>
+        </Grid>
+    </form>
+    
+    </Box>
     );
 }
 
