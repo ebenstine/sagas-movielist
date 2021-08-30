@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import './MovieList.css'
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Button } from '@material-ui/core';
 function MovieList() {
 
     const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function MovieList() {
         <>
             
             <Grid container justifyContent="center" spacing={4}>
-            <button onClick={handleNext}>Add a New Title!</button>
+            <Button onClick={handleNext}>Add a New Title!</Button>
             <section className="movies">
             {movies.map((movie) => {
                     return (
