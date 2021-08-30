@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { Button } from '@material-ui/core';
 
 function MovieDetails(){
     const history = useHistory();
@@ -13,7 +13,7 @@ function MovieDetails(){
     //button to go back, map through details with id
     return (
         <div>
-            <button onClick={handleBack}>Back to List</button>
+            <Button onClick={handleBack}>Back to List</Button>
 
             <section className="details">
             {details?.map((detail) => {

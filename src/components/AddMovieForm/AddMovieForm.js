@@ -65,7 +65,7 @@ function AddMovie() {
             </Grid>
             <Grid item>
             <TextareaAutosize
-                placeholder="add a description"
+                placeholder="Add Your Summary"
                 type="text"
                 rows="2"
                 
