@@ -33,6 +33,9 @@ function AddMovie() {
 
     const handleInputs = (key, value) => {
         setNewMovie ({...newMovie, [key]: value})
+        if (newMovie.key === '') {
+            alert('Please Enter a Title');
+        }
         
     }
     //if entry is cancelled, go home
@@ -40,6 +43,8 @@ function AddMovie() {
         console.log('cancel clicked');
         history.push('/');
     }
+
+
 
 
     //form details
